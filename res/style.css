@@ -44,7 +44,6 @@ p {
     flex-direction: column;
     break-after: always;
     break-inside: avoid;
-    /* border: 1px solid #000; */
 }
 @media print {
     .page {
@@ -69,7 +68,7 @@ p {
     display: flex;
     flex-basis: var(--footer-height);
     margin: 0mm var(--side-margin);
-    border-top: 1px solid var(--secend-color);
+    border-top: .5mm solid var(--secend-color);
 }
 .footer_left {
     flex-grow: 1;
@@ -93,9 +92,7 @@ p {
     margin: 5mm 0mm;
 }
 .page_title > h2 {
-    border: 1mm solid var(--secend-color);
-    border-left: 4mm solid var(--secend-color);
-    padding: 1mm 7mm;
+    border-bottom: .5mm solid var(--secend-color);
 }
 .page_content_2 {
     flex-grow: 1;
