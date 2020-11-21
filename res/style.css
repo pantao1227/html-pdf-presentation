@@ -1,17 +1,21 @@
 :root {
-    --page-height: 210mm;
-    --page-width: 297mm;
+    /* 高度与宽度应与 @page一致 */
+    --frame-height: 210mm;
+    --frame-width: 297mm;
     --fg-color: #14213D;
     --bg-color: #FFFFFF;
     --secend-color: #14213D;
     --small-font-size: 4mm;
-    --footer-height: 2vh;
+    --footer-height: 4vh;
     --side-margin: 10mm;
-    --top-margin: 10mm;
+    --top-margin: 2mm;
+    --bottom-padding: 1mm;
+    --normal-font-size: 10mm;
 }
 html {
     color: var(--fg-color);
     background: var(--bg-color);
+    font-family: SimSun;
 }
 h1, h2, h3 {
     font-family: Arial, Helvetica, sans-serif;
@@ -21,9 +25,6 @@ h1, h2, h3, h4, p {
 }
 h1 {
     font-size: 18mm;
-}
-p {
-    font-family: SimSun;
 }
 @page {
     size: A4 landscape;
@@ -37,16 +38,16 @@ p {
     margin-block-start: 0mm;
     margin-block-end: 0mm;
 }
-.page {
-    height: var(--page-height);
-    font-size: 10mm;
+.frame {
+    height: var(--frame-height);
+    font-size: var(--normal-font-size);
     display: flex;
     flex-direction: column;
     break-after: always;
     break-inside: avoid;
 }
 @media print {
-    .page {
+    .frame {
         border: none;
     }
 }
@@ -55,19 +56,19 @@ p {
     display: flex;
     flex-direction: column;
     margin-bottom: 0mm;
-    margin-top: 0mm;
+    margin-top: var(--top-margin);
     margin-left: var(--side-margin);
     margin-right: var(--side-margin);
 }
-.first_page {
+.first_frame {
     text-align: center;
 }
 .footer {
     font-size: var(--small-font-size);
     color: var(--fg-color);
     display: flex;
-    flex-basis: var(--footer-height);
-    margin: 0mm var(--side-margin);
+    margin: 0 var(--side-margin);
+    padding: var(--bottom-padding) 0;
     border-top: .5mm solid var(--secend-color);
 }
 .footer_left {
@@ -81,25 +82,20 @@ p {
 }
 .footer > div {
     text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
-.footer > div > p {
-    display: inline-block;
-    vertical-align: middle;
-    margin: 2mm auto;
-    line-height: var(--footer-height);
-}
-.page_title {
-    margin: 5mm 0mm;
-}
-.page_title > h2 {
+.frame_title {
     border-bottom: .5mm solid var(--secend-color);
 }
-.page_content_2 {
+.frame_content {
     flex-grow: 1;
     display: flex;
+    flex-direction: row;
 }
-.pc2_1, .pc2_2 {
+.frame_content_block {
     flex-grow: 1;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
 }

@@ -1,5 +1,7 @@
+const org = '组织/单位/地址/其他附加信息';
+
 function SetPageNum() {
-    var pgnum = document.querySelectorAll("div[class='footer_right']");
+    var pgnum = document.querySelectorAll("div[class='pagenumber']");
     var i;
     for (i=0; i < pgnum.length; i++) {
         var index = String(i + 1);
@@ -13,16 +15,17 @@ function SetDate() {
     month = month < 10 ? '0'+month : month;
     var day = today.getDate() < 10 ? '0'+today.getDate() : today.getDate();
     var currentdate = today.getFullYear() + '-' + month + '-' + day;
-    var dt = document.querySelectorAll("div[class='footer_left']");
+    var dt = document.querySelectorAll("div[class='datetime']");
     var i;
     for (i=0; i<dt.length; i++) {
-        dt[i].innerHTML = `<p>${currentdate}</p>`;
+        dt[i].textContent = currentdate;
     }
 }
 function SetShortTitle() {
-    var st = document.querySelectorAll("div[class='footer_center']");
+    var st = document.querySelectorAll("div[class='shorttitle']");
     var i;
     for (i=0;i<st.length;i++) {
-        st[i].innerHTML = "<p>微系统与芯片集成设计中心 - 503 实验室</p>";
+        // st[i].innerHTML = `<p>${org}</p>`;
+        st[i].textContent = org;
     }
 }
