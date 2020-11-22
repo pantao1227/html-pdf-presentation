@@ -23,18 +23,10 @@
 google-chrome --headless --disable-gpu --print-to-pdf=out.pdf index.html
 ```
 
-使用前先复制 `Template.html` 为 `main.html`，在 `main.html` 中编写演示文档。
-
 Makefile:
 
 ```
 output/output.pdf: main.html
 	mkdir -p output
 	google-chrome --headless --disable-gpu --print-to-pdf=output/out.pdf main.html
-
-new:
-	cp Template.html main.html
-
-clean:
-	rm output/out.pdf
 ```

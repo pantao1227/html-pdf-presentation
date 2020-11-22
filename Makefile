@@ -1,9 +1,8 @@
-output/output.pdf: main.html
-	mkdir -p output
-	google-chrome --headless --disable-gpu --print-to-pdf=output/out.pdf main.html
+WORK_DIR = work-$(shell date "+%Y%m%d%H%M%S")
 
-new:
-	cp Template.html main.html
-
-clean:
-	rm output/out.pdf
+$(WORK_DIR):
+	mkdir $(WORK_DIR)
+	cp -r css js $(WORK_DIR)
+	cp Template.html $(WORK_DIR)/main.html
+	cp Makefile.txt $(WORK_DIR)/Makefile
+	echo $(WORK_DIR)/ >> .gitignore
