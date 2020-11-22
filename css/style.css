@@ -45,6 +45,8 @@ h1 {
     flex-direction: column;
     break-after: always;
     break-inside: avoid;
+    position: relative; /* 给内部元素做位置参考，比如第一页的背景 */
+    overflow: hidden;   /* 溢出部分不显示 */
 }
 @media print {
     .frame {

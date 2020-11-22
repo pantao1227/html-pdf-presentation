@@ -5,4 +5,3 @@ $(WORK_DIR):
 	cp -r css js $(WORK_DIR)
 	cp Template.html $(WORK_DIR)/main.html
 	cp Makefile.txt $(WORK_DIR)/Makefile
-	echo $(WORK_DIR)/ >> .gitignore
