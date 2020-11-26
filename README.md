@@ -17,7 +17,7 @@
 
 每一个页面，用一个固定高度的 `div` 描述，同时预设所有边距为0，利用 CSS `@page` 设置打印尺寸，margin 设为0（下边距设为-1mm，因为即使设置 0 边距，打印后仍会由极细的下边距存在），使用 `break-after: always;` 设置分页。
 
-使用 Google-Chrome 打印，得到横向 A4 大小的文档。
+使用 Google-Chrome 打印（chromium 也可以），得到横向 A4 大小的文档。
 
 ```shell
 google-chrome --headless --disable-gpu --print-to-pdf=out.pdf index.html
