@@ -5,26 +5,17 @@
     --fg-color: #14213D;
     --bg-color: #FFFFFF;
     --secend-color: #14213D;
-    --small-font-size: 4mm;
-    --footer-height: 4vh;
     --side-margin: 10mm;
     --top-margin: 2mm;
-    --bottom-padding: 1mm;
-    --normal-font-size: 10mm;
-}
-html {
-    color: var(--fg-color);
-    background: var(--bg-color);
-    font-family: SimSun;
-}
-h1, h2, h3 {
-    font-family: Arial, Helvetica, sans-serif;
-}
-h1, h2, h3, h4, p {
-    color: var(--fg-color);
-}
-h1 {
-    font-size: 18mm;
+    --font-size-1: 4mm;
+    --font-size-2: 6mm;
+    --font-size-3: 8mm;
+    --font-size-4: 10mm;
+    --font-size-5: 12mm;
+    --font-size-6: 14mm;
+    --font-size-7: 16mm;
+    --font-size-8: 18mm;
+    --font-size-9: 20mm;
 }
 @page {
     size: A4 landscape;
@@ -33,71 +24,69 @@ h1 {
     overflow: hidden;
 }
 * {
-    margin: 0mm;
-    padding: 0mm;
-    margin-block-start: 0mm;
-    margin-block-end: 0mm;
+    margin: 0;
+    padding: 0;
+    border: none;
 }
-.frame {
-    height: var(--frame-height);
-    font-size: var(--normal-font-size);
-    display: flex;
-    flex-direction: column;
-    break-after: always;
-    break-inside: avoid;
-    position: relative; /* 给内部元素做位置参考，比如第一页的背景 */
-    overflow: hidden;   /* 溢出部分不显示 */
-}
-@media print {
-    .frame {
-        border: none;
-    }
-}
-.content {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 0mm;
-    margin-top: var(--top-margin);
-    margin-left: var(--side-margin);
-    margin-right: var(--side-margin);
-}
-.first_frame {
-    text-align: center;
-}
-.footer {
-    font-size: var(--small-font-size);
+html, body {
+    width: 100%;
+    height: 100%;
     color: var(--fg-color);
+    background: var(--bg-color);
+    font-family: SimSun;
+}
+h1, h2, h3 {
+    font-family: Arial, Helvetica, sans-serif;
+}
+footer {
     display: flex;
-    margin: 0 var(--side-margin);
-    padding: var(--bottom-padding) 0;
-    border-top: .5mm solid var(--secend-color);
-}
-.footer_left {
-    flex-grow: 1;
-}
-.footer_center {
-    flex-grow: 3;
-}
-.footer_right {
-    flex-grow: 1;
-}
-.footer > div {
+    flex-direction: row;
+    font-size: var(--font-size-1);
+    flex-basis: var(--font-size-3);
     text-align: center;
+    border-top: .5mm solid #000;
+}
+footer > div {
     display: flex;
+    align-items: center;
     justify-content: center;
+}
+footer > div:nth-child(1) {
+    flex-basis: 50mm;
+}
+footer > div:nth-child(2) {
+    flex-grow: 1;
+}
+footer > div:nth-child(3) {
+    flex-basis: 50mm;
+}
+/* 定义一个页面 */
+section\:f {
+    height: var(--frame-height);
+    font-size: var(--font-size-3);
+    /* break-after: always; */
+    break-inside: avoid;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    padding: 0mm 10mm;
+}
+/* 定义一个垂直flex布局 */
+flex\:v {
+    flex-grow: 1;
+    display: flex;
     flex-direction: column;
 }
-.frame_title {
-    border-bottom: .5mm solid var(--secend-color);
-}
-.frame_content {
+/* 定义一个水平flex布局 */
+flex\:h {
     flex-grow: 1;
     display: flex;
     flex-direction: row;
 }
-.frame_content_block {
+/* 定义一个图片标签 */
+img\:c {
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
     flex-grow: 1;
-    display: flex;
-    align-items: center;
 }

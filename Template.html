@@ -1,110 +1,34 @@
 <!DOCTYPE html>
-<head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script type="text/javascript" src="js/set_inner_html.js"></script>
-</head>
-<body onload="SetPageNum();SetShortTitle();SetDate();">
-    <!-- 标题页 -->
-    <div class="frame">
-        <div class="content first_frame">
-            <div id="title" style="flex-grow: 3; display: flex; align-items: flex-end;">
-                <h1 style="width: 100%;">这是演示文档的标题</h1>
-            </div>
-            <div id="author" style="flex-grow: 2; display: flex; align-items: center;">
-                <p style="width: 100%; font-family: Arial, Helvetica, sans-serif;">署名</p>
-            </div>
-            <div id="description" style="flex-grow: 1; text-align: left; margin-left: 100mm;">
-                <ul>
-                    <li>要点一</li>
-                    <li>要点二</li>
-                    <li>要点三</li>
-                </ul>
-            </div>
-            <div id="org" style="flex-grow: 1; flex-basis: 20mm; display: flex; align-items: center;">
-                <div class="shorttitle" style="width: 100%; font-size: 6mm; font-family: SimSun;"></div>
-            </div>
-        </div>
-    </div>
-    <!-- 一栏内容页 -->
-    <div class="frame">
-        <div class="content">
-            <div class="frame_title">
-                <h2>一栏内容</h2>
-            </div>
-            <div class="frame_content">
-                <div class="frame_content_block">
-                    <p>文本</p>
-                </div>
-            </div>
-        </div>
-        <div class="footer">
-            <div class="footer_left">
-                <div class="datetime"></div>
-            </div>
-            <div class="footer_center">
-                <div class="shorttitle"></div>
-            </div>
-            <div class="footer_right">
-                <div class="pagenumber"></div>
-            </div>
-        </div>
-    </div>
-    <!-- 两栏内容页 -->
-    <div class="frame">
-        <div class="content">
-            <div class="frame_title">
-                <h2>两栏内容</h2>
-            </div>
-            <div class="frame_content">
-                <div class="frame_content_block">
-                    <p>文本</p>
-                </div>
-                <div class="frame_content_block">
-                    <p>文本2</p>
-                </div>
-            </div>
-        </div>
-        <div class="footer">
-            <div class="footer_left">
-                <div class="datetime"></div>
-            </div>
-            <div class="footer_center">
-                <div class="shorttitle"></div>
-            </div>
-            <div class="footer_right">
-                <div class="pagenumber"></div>
-            </div>
-        </div>
-    </div>
-    <!-- 三栏内容页 -->
-    <div class="frame">
-        <div class="content">
-            <div class="frame_title">
-                <h2>三栏内容</h2>
-            </div>
-            <div class="frame_content">
-                <div class="frame_content_block">
-                    <p>文本</p>
-                </div>
-                <div class="frame_content_block">
-                    <p>文本2</p>
-                </div>
-                <div class="frame_content_block">
-                    <p>文本2</p>
-                </div>
-            </div>
-        </div>
-        <div class="footer">
-            <div class="footer_left">
-                <div class="datetime"></div>
-            </div>
-            <div class="footer_center">
-                <div class="shorttitle"></div>
-            </div>
-            <div class="footer_right">
-                <div class="pagenumber"></div>
-            </div>
-        </div>
-    </div>
-</body>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <script type="text/javascript" src="js/javascript.js"></script>
+    </head>
+    <body onload="setFooter()">
+        <section:f>
+            <flex:v>
+                <flex:h>
+                    <img:c style="background: url(./OshinoShinobu.png);"></img:c>
+                    <img:c style="background: url(./OshinoShinobu.png);"></img:c>
+                    <img:c style="background: url(./OshinoShinobu.png);"></img:c>
+                </flex:h>
+                <flex:h>flex 布局：水平、垂直。与PyQt5的布局类似，因此不需要定义额外的标签和样式</flex:h>
+                <flex:h>页脚的生成全部由js完成</flex:h>
+                <footer></footer>
+            </flex:v>
+        </section:f>
+        <section:f>
+            <flex:v>
+                <flex:h>
+                    <img:c style="background: url(./OshinoShinobu.png);"></img:c>
+                    <img:c style="background: url(./OshinoShinobu.png);"></img:c>
+                    <img:c style="background: url(./OshinoShinobu.png);"></img:c>
+                </flex:h>
+                <flex:h>flex 布局：水平、垂直。与PyQt5的布局类似，因此不需要定义额外的标签和样式</flex:h>
+                <flex:h>页脚的生成全部由js完成</flex:h>
+                <footer></footer>
+            </flex:v>
+        </section:f>
+    </body>
+</html>
