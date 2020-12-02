@@ -1,7 +1,10 @@
-WORK_DIR = work-$(shell date "+%Y%m%d%H%M%S")
+CHROME = google-chrome-stable
 
-$(WORK_DIR):
-	mkdir $(WORK_DIR)
-	cp -r css js $(WORK_DIR)
-	cp Template.html $(WORK_DIR)/main.html
-	cp Makefile.txt $(WORK_DIR)/Makefile
+.PHONY: clean
+
+pdf: main.html
+	mkdir -p output
+	$(CHROME) --headless --print-to-pdf=output/out.pdf main.html
+
+clean:
+	rm -rf output
