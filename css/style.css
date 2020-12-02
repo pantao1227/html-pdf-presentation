@@ -38,11 +38,14 @@ html, body {
 h1, h2, h3 {
     font-family: Arial, Helvetica, sans-serif;
 }
+p {
+    margin: 5mm 0mm;
+}
 footer {
     display: flex;
     flex-direction: row;
     font-size: var(--font-size-1);
-    flex-basis: var(--font-size-3);
+    flex-basis: var(--font-size-2);
     text-align: center;
     border-top: .5mm solid #000;
 }
