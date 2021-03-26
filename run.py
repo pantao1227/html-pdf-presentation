@@ -6,8 +6,8 @@ import re
 # This script can call chrome to print to PDF both on Windows and Linux.
 
 # Environment
-chrome_path_windows = 'C:\Program Files\Google\Chrome\Application\chrome.exe'
-chrome_cmd_linux = ''
+chrome_path_windows = 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'
+chrome_cmd_linux = 'google-chrome-stable'
 
 # Preset
 html_name = 'main1080p.html'
@@ -30,9 +30,9 @@ if not re.match(r'[0-9a-zA-Z_\.]+', pdf_name):
 
 if(platform.system() == 'Windows'):
     print('html file: {}\npdf file: {}.pdf'.format(html_name, pdf_name))
-    runcmd('"{}" --enable-logging --headless --disable-gpu --print-to-pdf=%CD%\{}.pdf %CD%\{} --print-to-pdf-no-header'\
+    runcmd('"{}" --enable-logging --headless --disable-gpu --print-to-pdf=%CD%\\{}.pdf %CD%\\{} --print-to-pdf-no-header'\
         .format(chrome_path_windows, pdf_name, html_name))
 elif(platform.system() == 'Linux'):
-    print('linux')
+    runcmd('{} --headless --disable-gpu --print-to-pdf={}.pdf {} --print-to-pdf-no-header'.format(chrome_cmd_linux, pdf_name, html_name))
 else:
     raise Exception('Unsupported platform')

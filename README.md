@@ -17,9 +17,9 @@
 
 ## 布局
 
-<del>每一个页面，用一个固定高度的 `div` 描述，</del>同时预设所有边距为0，利用 CSS `@page` 设置打印尺寸，margin 设为0（下边距设为-1mm，因为即使设置 0 边距，打印后仍会由极细的下边距存在），<del>使用 `break-after: always;` 设置分页</del>。
+同时预设所有边距为0，利用 CSS `@page` 设置打印尺寸，margin 设为0.
 
-使用之前的模板做了一个PPT，最后发现，定义了很多无用的样式，`flex` 其实和`PyQt5`的布局类似，一个水平flex，一个垂直flex，就可以解决绝大部分的布局。因此定义了标签`section:f`, `flex_v`, `flex_h`。其中`section:f`用于定义打印大小的页面。
+`flex` 其实和`PyQt5`的布局类似，一个水平flex，一个垂直flex，就可以解决绝大部分的布局。因此定义了标签`section:f`, `flex_v`, `flex_h`。其中`section:f`用于定义打印大小的页面。
 
 ## 图片
 
@@ -34,16 +34,13 @@
 应该与页脚类似，使用 header 标签，但是我做 PPT 很少使用页眉，因此先不实现。
 
 ## 生成 PDF
+
 使用 Google-Chrome 打印（chromium 也可以），得到横向 A4 大小的文档。
 
 ```shell
-google-chrome --headless --disable-gpu --print-to-pdf=out.pdf index.html
+google-chrome --headless --disable-gpu --print-to-pdf=out.pdf index.html --print-to-pdf-no-header
 ```
 
-Makefile:
+Windows 下 chrome 需要额外添加 `--enable-logging` 才能正常使用 headless 模式。
 
-```
-output/output.pdf: main.html
-	mkdir -p output
-	google-chrome --headless --disable-gpu --print-to-pdf=output/out.pdf main.html
-```
+使用 Python 提供跨平台支持。
