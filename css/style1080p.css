@@ -65,7 +65,7 @@ footer > div:nth-child(3) {
     flex-basis: 200px;
 }
 /* 定义一个页面 */
-section\:f {
+section-f {
     height: var(--frame-height);
     font-size: var(--font-size-3);
     /* break-after: always; */
@@ -76,19 +76,19 @@ section\:f {
     padding: 0px var(--side-margin);
 }
 /* 定义一个垂直flex布局 */
-flex\:v {
+flex-v {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
 }
 /* 定义一个水平flex布局 */
-flex\:h {
+flex-h {
     flex-grow: 1;
     display: flex;
     flex-direction: row;
 }
 /* 定义一个图片标签 */
-img\:c {
+img-c {
     background-size: contain !important;
     background-repeat: no-repeat !important;
     background-position: center !important;
