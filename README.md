@@ -19,7 +19,7 @@
 
 同时预设所有边距为0，利用 CSS `@page` 设置打印尺寸，margin 设为0.
 
-`flex` 其实和`PyQt5`的布局类似，一个水平flex，一个垂直flex，就可以解决绝大部分的布局。因此定义了标签`section-f`, `flex-v`, `flex-h`。其中`section-f`用于定义打印大小的页面。
+`flex` 布局，一个水平flex，一个垂直flex，就可以解决绝大部分的布局。因此定义了标签`section-f`, `flex-v`, `flex-h`。其中`section-f`用于定义打印大小的页面。
 
 ## 图片
 
