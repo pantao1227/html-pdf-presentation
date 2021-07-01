@@ -8,6 +8,7 @@ import re
 # Environment
 chrome_path_windows = 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'
 chrome_cmd_linux = 'google-chrome-stable'
+chrome_path_macos = '/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
 
 # Preset
 html_name = 'main1080p.html'
@@ -39,5 +40,7 @@ if(platform.system() == 'Windows'):
         .format(chrome_path_windows, pdf_name, html_name))
 elif(platform.system() == 'Linux'):
     runcmd('{} --headless --disable-gpu --print-to-pdf={} {} --print-to-pdf-no-header'.format(chrome_cmd_linux, pdf_name, html_name))
+elif(platform.system() == 'Darwin'):
+    runcmd('{} --headless --disable-gpu --print-to-pdf={} {} --print-to-pdf-no-headr'.format(chrome_path_macos, pdf_name, html_name))
 else:
     raise Exception('Unsupported platform')
