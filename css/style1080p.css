@@ -1,34 +1,27 @@
 :root {
-    /* 高度与宽度应与 @page一致 */
-    --frame-height: 1080px;
-    --frame-width: 1920px;
     --fg-color: #14213D;
     --bg-color: #FFFFFF;
     --secend-color: #14213D;
-    --side-margin: 50px;
-    --top-margin: 0px;
-    --footer-height: 32px;
-    --font-size-1: 16px;
-    --font-size-2: 20px;
-    --font-size-3: 24px;
-    --font-size-4: 28px;
-    --font-size-5: 32px;
-    --font-size-6: 36px;
-    --font-size-7: 40px;
-    --font-size-8: 44px;
-    --font-size-9: 48px;
 }
+
+/* 打印尺寸设置 */
 @page {
+    /* vh 和 vw 似乎会根据这个尺寸来 */
     size: 1920px 1080px;
     margin: 0;
     padding: 0;
     overflow: hidden;
 }
+
+/* 全局 CSS 设置 */
 * {
     margin: 0;
     padding: 0;
     border: none;
+    /* 消除某些莫名其妙的对不齐 */
+    box-sizing: border-box;
 }
+
 html, body {
     width: 100%;
     height: 100%;
@@ -36,53 +29,44 @@ html, body {
     background: var(--bg-color);
     font-family: SimSun;
 }
+
+body {
+    position: relative;
+}
+
 h1, h2, h3 {
     font-family: Arial, Helvetica, sans-serif;
 }
+
 p {
     margin: 20px 0px;
 }
-footer {
-    display: flex;
-    flex-direction: row;
-    font-size: var(--font-size-1);
-    flex-basis: var(--footer-height);
-    text-align: center;
-    border-top: 0.5px solid #000;
-}
-footer > div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-footer > div:nth-child(1) {
-    flex-basis: 200px;
-}
-footer > div:nth-child(2) {
-    flex-grow: 1;
-}
-footer > div:nth-child(3) {
-    flex-basis: 200px;
-}
+
 /* 定义一个页面 */
-section-f {
-    height: var(--frame-height);
-    font-size: var(--font-size-3);
+section, .section {
+    height: 100vh;
+    font-size: 3vh;
     /* break-after: always; */
     break-inside: avoid;
     position: relative;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    padding: 0px var(--side-margin);
+    padding: 0px 2vw;
 }
+
 /* 定义一个垂直flex布局 */
-flex-v {
+flex-v, .main {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
 }
+
+.main {
+    padding-top: 5vh;
+}
+
 /* 定义一个水平flex布局 */
 flex-h {
     flex-grow: 1;
@@ -90,6 +74,7 @@ flex-h {
     flex-direction: row;
     justify-content: space-around;
 }
+
 /* 图片标签自适应 */
 img {
     max-width: 100%;
@@ -97,4 +82,37 @@ img {
     object-fit: contain;
     min-width: 0;
     flex: 1 1 0;
+}
+
+/* 页眉、页脚 */
+header, footer {
+    font-size: 2.2vh;
+    flex: 0 0 2.3vh;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.grid-layout {
+    display: grid;
+    align-items: center;
+    margin: auto 5vw;
+    grid-row-gap: 1vh;
+    justify-items: center;
+    grid-auto-flow: column;
+}
+
+/* highlightjs css 修正 */
+.hljs-ln-n:before {
+    margin-right: 20px;
+}
+
+ol {
+    padding: 0px 20px;
+}
+li {
+    list-style: cjk-ideographic;
+}
+li > ol > li {
+    list-style: decimal;
 }
