@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="./css/style1080p.css" />
+        <link rel="stylesheet" href="./css/github-markdown-light.css" />
         <!-- 代码高亮 -->
         <link rel="stylesheet" href="js/highlightjs/styles/github-gist.css">
         <script src="js/highlightjs/highlight.pack.js"></script>
@@ -11,6 +12,8 @@
         <!-- 显示行号 -->
         <script src="js/line_number/highlightjs-line-numbers.min.js"></script>
         <script>hljs.initLineNumbersOnLoad();</script>
+
+        <script src="./js/markdown-it.min.js"></script>
     </head>
     <style>
         footer {
@@ -121,9 +124,19 @@ int mian()
                     <h1 style="font-size: 6vw;"></h1><span style="font-size: 10vw; margin-left: 6vw;">节标题</span>
                 </flex-h>
             </div>
-            <section title="第一节">
+            <section title="使用 Markdown">
                 <div class="main">
-                    ABCDEFG
+                    <h2></h2>
+                    <div class="grid-layout" style="grid-template-columns: 1fr 1fr;">
+                        <div class="markdown-container" style="font-size: 2vw;">
+|序号|选项一|选项二|
+|----|----|----|
+|1|abc|def|
+|2|ghi|jkl|
+|3|mno|pqr|
+                        </div>
+                        <div>123</div>
+                    </div>
                 </div>
                 <footer></footer>
             </section>
@@ -242,6 +255,15 @@ int mian()
 
             // 生成目录
             gen_contents();
+
+            // 处理 Markdown
+            var md = window.markdownit();
+            md_list = document.querySelectorAll('.markdown-container');
+            md_list.forEach(function(item){
+                var md_src_txt = item.innerHTML;
+                item.innerHTML = md.render(md_src_txt);
+                item.classList.add('markdown-body');
+            });
         </script>
     </body>
 </html>
