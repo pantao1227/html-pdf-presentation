@@ -13,7 +13,11 @@
         <script src="js/line_number/highlightjs-line-numbers.min.js"></script>
         <script>hljs.initLineNumbersOnLoad();</script>
 
+        <!-- Markdown 渲染 -->
         <script src="./js/markdown-it.min.js"></script>
+
+        <!-- 图表工具 -->
+        <script src="./js/echarts.js"></script>
     </head>
     <style>
         footer {
@@ -126,7 +130,7 @@ int mian()
                     <h1 style="font-size: 6vw;"></h1><span style="font-size: 10vw; margin-left: 6vw;">节标题</span>
                 </flex-h>
             </div>
-            <section title="使用 Markdown">
+            <section title="使用 Markdown | 使用 ECharts">
                 <div class="main">
                     <h2></h2>
                     <div class="grid-layout" style="grid-template-columns: 1fr 1fr;">
@@ -140,7 +144,54 @@ int mian()
 |2|ghi|jkl|
 |3|mno|pqr|
                         </div>
-                        <div>123</div>
+                        <div id="chart_1" style="height: 400px; width: 600px;"></div>
+                        <script>
+                             // 基于准备好的dom，初始化echarts实例
+                            var myChart = echarts.init(document.getElementById('chart_1'));
+
+                            // 指定图表的配置项和数据
+                            var option = {
+                                animation: false,
+                                title: {
+                                    text: 'Referer of a Website',
+                                    subtext: 'Fake Data',
+                                    left: 'center'
+                                },
+                                tooltip: {
+                                    trigger: 'item'
+                                },
+                                series: [
+                                    {
+                                        name: 'Access From',
+                                        type: 'pie',
+                                        radius: '50%',
+                                        data: [
+                                            { value: 1048, name: 'Search Engine' },
+                                            { value: 735, name: 'Direct' },
+                                            { value: 580, name: 'Email' },
+                                            { value: 484, name: 'Union Ads' },
+                                            { value: 300, name: 'Video Ads' }
+                                        ],
+                                        emphasis: {
+                                            itemStyle: {
+                                            shadowBlur: 10,
+                                            shadowOffsetX: 0,
+                                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                                            }
+                                        },
+                                        label: {
+                                            normal: {
+                                                show: true,
+                                                formatter: '{b}: {c}({d}%)'
+                                            }
+                                        }
+                                    }
+                                ]
+                            };
+
+                            // 使用刚指定的配置项和数据显示图表。
+                            myChart.setOption(option);
+                        </script>
                     </div>
                 </div>
                 <footer></footer>
