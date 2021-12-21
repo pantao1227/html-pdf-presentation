@@ -28,6 +28,19 @@
         footer div {
             text-align: center;
         }
+        .contents ol {
+            padding: 0px 20px;
+        }
+        .contents li {
+            list-style: cjk-ideographic;
+        }
+        .contents li > ol > li {
+            list-style: decimal;
+        }
+        .contents-title {
+            font-size: 5vw;
+            padding: 0 20px;
+        }
     </style>
     <body>
         <!-- h1 h2 由 JavaScript 控制 -->
@@ -35,7 +48,9 @@
             <div style="font-size: 10vh;">总标题</div>
         </section>
         <section style="justify-content: center; align-items: center;">
-            <div id='contents'></div>
+            <div id='contents' class="contents">
+                <div class="contents-title">目录</div>
+            </div>
         </section>
         <article title="第一章">
             <!-- article 内部的 section 可能会被用来生成序号，如果不想被计入，使用 .section -->

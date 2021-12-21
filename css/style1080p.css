@@ -93,6 +93,7 @@ header, footer {
     padding: 10px;
 }
 
+/* grid 布局默认参数 */
 .grid-layout {
     display: grid;
     align-items: center;
@@ -105,14 +106,4 @@ header, footer {
 /* highlightjs css 修正 */
 .hljs-ln-n:before {
     margin-right: 20px;
-}
-
-ol {
-    padding: 0px 20px;
-}
-li {
-    list-style: cjk-ideographic;
-}
-li > ol > li {
-    list-style: decimal;
 }
